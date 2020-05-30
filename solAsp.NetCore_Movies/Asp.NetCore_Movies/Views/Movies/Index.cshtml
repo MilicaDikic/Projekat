@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Asp.NetCore_Movies.Models.Movie>
+
+@{
+    ViewData["Title"] = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Filmovi:</h1>
+
+<p>
+    <a asp-action="Create">Add new movie</a>
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Naziv filma:</th>
+            <th colspan="2">Akcije:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Ime, "Details", "Movies", new { id = item.Id }, null)
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

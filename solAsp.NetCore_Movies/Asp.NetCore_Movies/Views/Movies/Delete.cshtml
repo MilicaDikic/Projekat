@@ -1,0 +1,33 @@
+﻿@model Asp.NetCore_Movies.Models.Movie
+
+@{
+    ViewData["Title"] = "Brisanje";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Brisanje filma</h2>
+<hr>
+<h3>Da li ste sigurni da zelite da izbrisete film?</h3>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="Ime" class="control-label"></label>
+            <input asp-for="Ime" class="form-control" />
+            <span asp-validation-for="Ime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Zanr" class="control-label"></label>
+            <input asp-for="Zanr" class="form-control" />
+            <span asp-validation-for="Zanr" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info" class="control-label"></label>
+            <input asp-for="Info" class="form-control" />
+            <span asp-validation-for="Info" class="text-danger"></span>
+        </div>
+        <form asp-action="Delete">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Back</a>
+        </form>
+    </div>
+</div>
