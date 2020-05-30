@@ -29,6 +29,21 @@ namespace Asp.NetCore_Movies.Controllers
             return View(movieService.Get());
         }
 
+        // GET: Movies/Details/5
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movie = movieService.Get(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return View(movie);
+        }
 
         // GET: Movies/Create
         public ActionResult Create()
